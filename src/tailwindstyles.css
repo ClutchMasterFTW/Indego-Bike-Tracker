@@ -636,6 +636,10 @@ video {
   margin: 0.75rem;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -657,6 +661,14 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .flex {
@@ -758,6 +770,10 @@ video {
   height: 9rem;
 }
 
+.min-h-36 {
+  min-height: 9rem;
+}
+
 .w-32 {
   width: 8rem;
 }
@@ -816,6 +832,30 @@ video {
   width: fit-content;
 }
 
+.w-\[100\%-20px\] {
+  width: 100%-20px;
+}
+
+.w-\[100\%-100px\] {
+  width: 100%-100px;
+}
+
+.w-\[calc\(100\%-10px\)\] {
+  width: calc(100% - 10px);
+}
+
+.w-\[calc\(100\%-5px\)\] {
+  width: calc(100% - 5px);
+}
+
+.w-\[calc\(100\%-2px\)\] {
+  width: calc(100% - 2px);
+}
+
+.w-\[inherit\] {
+  width: inherit;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -824,6 +864,10 @@ video {
 
 .animate-spin {
   animation: spin 1s linear infinite;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-row {
@@ -856,6 +900,14 @@ video {
 
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .overflow-auto {
@@ -916,6 +968,16 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
 
 .fill-blue-600 {
