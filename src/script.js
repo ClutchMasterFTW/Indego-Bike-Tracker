@@ -2,6 +2,7 @@ const contentContainer = $("#content");
 
 $.getJSON("https://bts-status.bicycletransit.workers.dev/phl", function(data) {
     console.log(data.features);
+    let timeout;
     setTimeout(function() {
         contentContainer.html("");
         const filterContainer = $(`<div class="bg-gray-950 rounded-3xl w-[calc(100%/5)] h-[calc(100%-200px)] p-4 m-4">This is the filter area</div>`);
@@ -23,7 +24,7 @@ $.getJSON("https://bts-status.bicycletransit.workers.dev/phl", function(data) {
 
             const innerContainer = $(`
                 <div class="w-[inherit]">
-                    <h4 class="font-medium text-2xl">${station.properties.name}</h4>
+                    <h4 class="font-medium text-2xl cursor-pointer w-max">${station.properties.name}</h4>
                     <p>${station.properties.addressStreet + " " + station.properties.addressCity + ", " + station.properties.addressState + ". " + station.properties.addressZipCode}</p>
                     <div class="flex flex-row">Bikes:&nbsp;<p ${(station.properties.bikes.length == 0 ? "class='text-red-800 font-bold'" : "")}>${station.properties.bikes.length}</p>/${station.properties.totalDocks}</div>
                 </div>
@@ -49,13 +50,22 @@ $.getJSON("https://bts-status.bicycletransit.workers.dev/phl", function(data) {
                 // "Tooltip" functionality
                 bikeElement.hover(function() {
                     // On mouse over
-                    console.log("enter");
+                    if(!(timeout === undefined || timeout == null)) {
+                        clearTimeout(timeout);
+                        $("#bike-card").remove();
+                        timeout == null;
+                    }
+                    const bikeCard = $(`<div id="bike-card" class="relative top-1 left-1">TEST</div>`);
+                    bikeElement.append(bikeCard);
                 },
                 function() {
                     // On mouse leave
-                    console.log("leave");
+                    timeout = setTimeout(function() {
+                        $("#bike-card").remove();
+                        timeout = null;
+                    }, 2000);
                 });
-            })
+            });
 
             dataInnerContainer.append(container);
         });
